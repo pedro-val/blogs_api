@@ -11,6 +11,13 @@ const postUserSchema = joi.object({
     'string.email': '"email" must be a valid email',
 });
 
+const idSquema = joi.object({
+    id: joi.number().integer().positive().required(),
+}).messages({
+    'any.required': '{#label} is required',
+});
+
 module.exports = {
     postUserSchema,
+    idSquema,
 };
