@@ -11,6 +11,14 @@ const addUser = async ({ displayName, email, password, image }) => {
     return ({ message: 'User already registered' });
 };
 
+const findAllUsers = async () => {
+    const users = await User.findAll({
+        attributes: { exclude: ['password'] },
+    });
+    return users;
+};
+
 module.exports = {
     addUser,
+    findAllUsers,
 };
