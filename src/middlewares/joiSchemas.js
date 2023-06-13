@@ -17,7 +17,14 @@ const idSquema = joi.object({
     'any.required': '{#label} is required',
 });
 
+const categoriesSchema = joi.object({
+    name: joi.string().min(3).required(),
+}).messages({
+    'any.required': '{#label} is required',
+});
+
 module.exports = {
     postUserSchema,
     idSquema,
+    categoriesSchema,
 };
