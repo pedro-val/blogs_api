@@ -1,16 +1,16 @@
 module.exports = (sequelize, DataTypes) => {
-    const BlogPostsCategories = sequelize.define('posts_categories', {
+    const BlogPostsCategories = sequelize.define('PostsCategories', {
         blogPostId: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'blog_posts',
+                model: 'BlogPosts',
                 key: 'id',
             },
         },
         categoryId: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'categories',
+                model: 'Categories',
                 key: 'id',
             },
         },

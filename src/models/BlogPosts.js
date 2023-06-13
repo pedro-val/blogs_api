@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const BlogPost = sequelize.define('blog_posts', {
+    const BlogPost = sequelize.define('BlogPosts', {
         title: DataTypes.STRING,
         content: DataTypes.STRING,
         published: DataTypes.DATE,
@@ -16,9 +16,9 @@ module.exports = (sequelize, DataTypes) => {
             as: 'user',
         });
         
-        BlogPost.belongsToMany(models.categories, {
+        BlogPost.belongsToMany(models.Categories, {
             as: 'categories',
-            through: models.posts_categories,
+            through: models.PostsCategories,
             foreignKey: 'post_id',
             otherKey: 'category_id',
         });
