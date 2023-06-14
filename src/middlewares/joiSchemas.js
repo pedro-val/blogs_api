@@ -1,5 +1,7 @@
 const joi = require('joi');
 
+const required = 'Some required fields are missing';
+
 const postUserSchema = joi.object({
     displayName: joi.string().min(8).required(),
     email: joi.string().email().required(),
@@ -23,8 +25,49 @@ const categoriesSchema = joi.object({
     'any.required': '{#label} is required',
 });
 
+// const blogPostSchema = joi.object({
+//     title: joi.string().min(1).required()
+//     .empty()
+//     .messages({
+//         'string.min': required,
+//         'any.empty': required,
+//         'any.required': required,
+//     }),
+//     content: joi.string().min(1).required()
+//     .empty(),
+//     categoryIds: joi.array().items(joi.number().integer().positive()).min(1).required()
+//     .empty(),
+// }).messages({
+//     'array.includes': 'one or more "categoryIds" not found',
+//     'any.array': 'one or more "categoryIds" not found',
+//     'array.min': 'one or more "categoryIds" not found',
+//     // 'required.categoryIds': 'one or more "categoryIds" not found',    
+// });
+
+const blogPostSchema = joi.object({
+    title: joi.string().min(1).required().empty()
+    .messages({
+        'string.empty': required,
+        'string.min': required,
+        'any.required': required,
+    }),
+    content: joi.string().min(1).required()
+    .messages({
+        'string.empty': required,
+        'string.min': required,
+    }),
+    categoryIds: joi.array().items(joi.number().integer().positive()).min(1).required()
+    .messages({
+        'array.includes': 'one or more "categoryIds" not found',
+        'array.min': 'one or more "categoryIds" not found',
+        'categoryIds.required': required,
+        'any.required': required,
+    }),
+});
+
 module.exports = {
     postUserSchema,
     idSquema,
     categoriesSchema,
+    blogPostSchema,
 };

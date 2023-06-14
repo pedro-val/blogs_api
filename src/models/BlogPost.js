@@ -7,8 +7,14 @@ module.exports = (sequelize, DataTypes) => {
         },
         title: DataTypes.STRING,
         content: DataTypes.STRING,
-        published: DataTypes.DATE,
-        updated: DataTypes.DATE,
+        published: {
+            type: DataTypes.DATE,
+            defaultValue: sequelize.fn('now'),
+         },
+        updated: {
+           type: DataTypes.DATE,
+           defaultValue: sequelize.fn('now'),
+        },
         userId: {
             type: DataTypes.INTEGER,
             references: {
