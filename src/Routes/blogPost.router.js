@@ -7,6 +7,7 @@ const editPostValidator = require('../middlewares/editPostValidation');
 
 const router = express.Router();
 router.post('/', validateToken, validateBlogPost, blogPostController.addBlogPost);
+router.get('/search', validateToken, blogPostController.searchPost);
 router.get('/:id', validateToken, idValidator, blogPostController.getBlogPostById);
 router.put('/:id', validateToken, idValidator, editPostValidator, blogPostController.editPost);
 router.get('/', validateToken, blogPostController.getAllBlogPosts);
