@@ -6,6 +6,7 @@ const idValidation = require('../middlewares/idValidation');
 
 const router = express.Router();
 router.post('/', validateUser, userControler.addUser);
+router.delete('/me', validateToken, userControler.deleteUser);
 router.get('/:id', idValidation, validateToken, userControler.findUser);
 router.get('/', validateToken, userControler.findAllUsers);
 
