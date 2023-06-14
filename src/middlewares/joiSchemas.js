@@ -65,9 +65,25 @@ const blogPostSchema = joi.object({
     }),
 });
 
+const blogPostSchemaUpdate = joi.object({
+    title: joi.string().min(1).required().empty()
+    .messages({
+        'string.empty': required,
+        'string.min': required,
+        'any.required': required,
+    }),
+    content: joi.string().min(1).required()
+    .messages({
+        'string.empty': required,
+        'string.min': required,
+        'any.required': required,
+    }),
+});
+
 module.exports = {
     postUserSchema,
     idSquema,
     categoriesSchema,
     blogPostSchema,
+    blogPostSchemaUpdate,
 };

@@ -20,8 +20,18 @@ const getBlogPostById = async (req, res) => {
     res.status(200).json(post);
 };
 
+const editPost = async (req, res) => {
+    const { id } = req.params;
+    const { title, content } = req.body;
+    const { id: userId } = res.locals.user;
+    const post = await blogPostService.editPost(id, title, content, userId);
+    if (post.message) return res.status(401).json(post);
+    res.status(200).json(post);
+};
+
 module.exports = {
     addBlogPost,
     getAllBlogPosts,
     getBlogPostById,
+    editPost,
 };
