@@ -61,7 +61,7 @@ const editPost = async (id, title, content, userId) => {
         include: [
             { model: User,
                 as: 'user',
-                  attributes: { exclude: ['password'] },
+                attributes: { exclude: ['password'] },
               },
               { model: Category, as: 'categories', through: { attributes: [] } },
           ],
