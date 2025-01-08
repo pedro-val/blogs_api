@@ -1,50 +1,35 @@
-# Boas-vindas ao repositório do projeto API de Blogs!
+###  Blog API Project Repository!
+In this project, an API and a database were developed for content production in a blog!
 
-**Neste projeto, foi desenvolvido uma API e um banco de dados para a produção de conteúdo em um blog!**
+The application was developed in Node.js using the Sequelize package to perform CRUD operations on posts. The API follows REST principles.
 
-A aplicação foi desenvolvida em Node.js utilizando o pacote Sequelize para realizar as operações de CRUD em posts. A API segue os princípios do REST.
+Endpoints connected to the database were implemented to perform the following functionalities:
 
-Foram implementados endpoints conectados ao banco de dados para realizar as seguintes funcionalidades:
+Creation of migrations for the tables: users, categories, blog_posts, and posts_categories.
+Creation of the User model in src/models/User.js with the correct properties.
+Implementation of the POST /login endpoint to allow user authentication.
+Implementation of the POST /user endpoint to add a new user to the database.
+Implementation of the GET /user endpoint to list all users in the database.
+Implementation of the GET /user/:id endpoint to search for a user by ID in the database.
+Creation of the Category model in src/models/Category.js with the correct properties.
+Implementation of the POST /categories endpoint to add new categories to the database.
+Implementation of the GET /categories endpoint to list all categories in the database.
+Creation of the BlogPost model in src/models/BlogPost.js with the correct properties and associations.
+Creation of the PostCategory model in src/models/PostCategory.js with the correct properties and associations.
+Implementation of the POST /post endpoint to add new posts to the blog, linked to categories.
+Implementation of the GET /post endpoint to list all posts, including user and category information.
+Implementation of the GET /post/:id endpoint to search for a post by ID in the database.
+Implementation of the PUT /post/:id endpoint to update the attributes of a post, maintaining user ownership restrictions.
+Implementation of the DELETE /post/:id endpoint to delete a post from the database.
+Implementation of the DELETE /user/me endpoint to delete the authenticated user.
+Implementation of the GET /post/search?q=:searchTerm endpoint to search for posts based on a search term.
+Technologies Used
+Node.js
+Sequelize
+REST
+Postgres
 
-1. Criação de migrations para as tabelas: users, categories, blog_posts, e posts_categories.
 
-2. Criação do modelo User em `src/models/User.js` com as propriedades corretas.
 
-3. Implementação do endpoint POST `/login` para permitir a autenticação de usuários.
 
-4. Implementação do endpoint POST `/user` para adicionar um novo usuário ao banco de dados.
 
-5. Implementação do endpoint GET `/user` para listar todos os usuários no banco de dados.
-
-6. Implementação do endpoint GET `/user/:id` para buscar um usuário pelo ID no banco de dados.
-
-7. Criação do modelo Category em `src/models/Category.js` com as propriedades corretas.
-
-8. Implementação do endpoint POST `/categories` para adicionar novas categorias no banco de dados.
-
-9. Implementação do endpoint GET `/categories` para listar todas as categorias no banco de dados.
-
-10. Criação do modelo BlogPost em `src/models/BlogPost.js` com as propriedades e associações corretas.
-
-11. Criação do modelo PostCategory em `src/models/PostCategory.js` com as propriedades e associações corretas.
-
-12. Implementação do endpoint POST `/post` para adicionar novos posts no blog, vinculados a categorias.
-
-13. Implementação do endpoint GET `/post` para listar todos os posts, incluindo informações de usuário e categorias.
-
-14. Implementação do endpoint GET `/post/:id` para buscar um post pelo ID no banco de dados.
-
-15. Implementação do endpoint PUT `/post/:id` para atualizar os atributos de um post, mantendo a restrição de propriedade do usuário.
-
-16. Implementação do endpoint DELETE `/post/:id` para excluir um post do banco de dados.
-
-17. Implementação do endpoint DELETE `/user/me` para excluir o usuário autenticado.
-
-18. Implementação do endpoint GET `/post/search?q=:searchTerm` para buscar posts com base em um termo de pesquisa.
-
-## Tecnologias Utilizadas
-
-- Node.js
-- Sequelize
-- REST
-- Postgres
